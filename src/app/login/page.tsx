@@ -1,20 +1,20 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import Button from 'react-bootstrap/Button';
 
-
-const Login = () => {
+export default function Login() {
     const router = useRouter()
     return (
-      <div>
-          <div>
-            <span>Login</span>
-
-        </div>
         <div>
-            <button onClick={() => { router.push('/') }}>back</button>
+            <div>
+                <span>Login</span>
+
+            </div>
+            <div>
+                <Button variant='success'>Login</Button>
+                <Button onClick={() => { router.push('/') }} variant='danger'> Back</Button>
+            </div>
         </div>
-      </div>
 
     )
 }
-export default Login

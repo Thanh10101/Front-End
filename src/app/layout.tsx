@@ -1,7 +1,27 @@
-import './globals.css'
+'use client'
+// import './globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+
+//boostrap
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+//
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBIcon,
+  MDBBtn
+} from 'mdbreact';
+//import boostrap
+import "@fortawesome/fontawesome-free/css/all.min.css"
+import "bootstrap-css-only/css/bootstrap.min.css"
+import "mdbreact/dist/css/mdb.css"
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +35,105 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#link">Link</Nav.Link>
+                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1" color='red'>Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">
+                    Separated link
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        {children}
+        <MDBFooter className='bg-light text-center text-white'>
+          <MDBContainer className='p-4 pb-0'>
+            <section className='mb-4'>
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#3b5998' }}
+                href='#!'
+                role='button'
+              >
+                <MDBIcon fab icon='facebook-f' />
+              </MDBBtn>
+
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#55acee' }}
+                href='#!'
+                role='button'
+              >
+                <MDBIcon fab icon='twitter' />
+              </MDBBtn>
+
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#dd4b39' }}
+                href='#!'
+                role='button'
+              >
+                <MDBIcon fab icon='google' />
+              </MDBBtn>
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#ac2bac' }}
+                href='#!'
+                role='button'
+
+              >
+                <MDBIcon fab icon='instagram' />
+              </MDBBtn>
+
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#0082ca' }}
+                href='#!'
+                role='button'
+              >
+                <MDBIcon fab icon='linkedin-in' />
+              </MDBBtn>
+
+              <MDBBtn
+                floating
+                className='m-1'
+                style={{ backgroundColor: '#333333' }}
+                href='#!'
+
+                role='button'
+              >
+
+                <MDBIcon fab icon='github' />
+              </MDBBtn>
+            </section>
+          </MDBContainer>
+          <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+            © 2020 Copyright:
+            <a className='text-white' href='http://localhost:3000/'>
+              Bookstore.com
+            </a>
+          </div>
+        </MDBFooter>
+      </body>
     </html>
   )
 }
