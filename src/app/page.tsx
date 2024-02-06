@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 
 export default function BasicExample() {
   return (
-    <Container className='vh-100' style={{ color: app.primaryColor }}>
+    <Container className='min-vh-100' style={{ color: app.primaryColor }}>
       body
     </Container>
   );

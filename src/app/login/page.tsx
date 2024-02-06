@@ -14,7 +14,7 @@ export default function Login() {
         router.push('/register')
     }
     return (
-        <Container className='vh-100 bg-body-tertiary d-grid gap-3'>
+        <Container className='min-vh-100 bg-body-tertiary d-grid gap-3'>
             <Form className='p-2' >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -31,9 +31,9 @@ export default function Login() {
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
                 <Container className='text-center'>
-                    <ButtonGroup className='me-2 w-20'>
-                        <Button className='me-2 w-10' onClick={() => login()} variant="success">Login</Button>
-                        <Button className='me-2 w-10' onClick={() => register()} variant="primary">Register</Button>
+                    <ButtonGroup className='me-2 w-50'>
+                        <Button className='me-2 w-50' onClick={() => login()} variant="success">Login</Button>
+                        <Button className='me-2 w-50' onClick={() => register()} variant="primary">Register</Button>
                     </ButtonGroup>
                 </Container>
             </Form>
