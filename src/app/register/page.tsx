@@ -30,7 +30,7 @@ export default function Register() {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Container className='text-center'>
+                <Container className='text-center w-100'>
                     <ButtonGroup className='me-2 w-50'>
                         <Button className='me-2 w-50' onClick={() => register()} variant="primary">Register</Button>
                     </ButtonGroup>
