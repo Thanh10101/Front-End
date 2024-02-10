@@ -1,48 +1,27 @@
 'use client'
-
-import {
-    MDBFooter,
-    MDBContainer,
-    MDBCol,
-    MDBRow,
-    MDBIcon,
-    MDBBtn
-} from 'mdbreact';
-import Button from 'react-bootstrap/Button'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+import { Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 
 export default function AppFooter() {
     return (
-        <MDBFooter MDBFooter className='bg-dark border border-dark border-top-100 text-center' >
-            <MDBContainer className='p-4 pb-0 ' >
-                <section className='mb-4'>
-                    <MDBBtn
-                        floating
-                        className=' m-1'
-                        color="primary"
-                        href='https://www.facebook.com/Thanh.NT2002/'
-                        role='button'
-                        as={Button}
-                    >
-                        <MDBIcon fab icon='facebook-f' />
-                    </MDBBtn>
-                    <MDBBtn
-                        floating
-                        className='m-1'
-                        color="dark"
-                        href='https://github.com/Thanh10101?tab=repositories'
-                        role='button'
-                        as={Button}
-                    >
-                        <MDBIcon fab icon='github' />
-                    </MDBBtn>
-                </section>
-            </MDBContainer>
-            <div className='text-center p-3 border border-dark ' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-                © 2020 Copyright:
-                <a className='text-white' href='http://localhost:3000/'>
-                    Bookstore.com
-                </a>
-            </div>
-        </MDBFooter >
+        <Container fluid>
+            <Container className='text-center'>
+                <footer className="footer">
+                    <div>
+                        <FontAwesomeIcon icon={faAddressBook} />
+                        <a href="https://coreui.io">CoreUI</a>
+                        <span>&copy; 2022 creativeLabs.</span>
+                    </div>
+                    <div>
+                        <span>Powered by</span>
+                        <a href="https://coreui.io">CoreUI</a>
+                    </div>
+                </footer>
+            </Container>
+        </Container>
     )
 }

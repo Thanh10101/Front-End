@@ -1,19 +1,17 @@
 'use client'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import { Container, Nav, Navbar, NavDropdown, Button, Form, ButtonGroup } from 'react-bootstrap'
 import Link from 'next/link'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import AppLogin from './app.login'
+import AppRegister from "@/components/public/app.register"
 
 export default function AppHeader() {
     return (
         <Navbar expand="lg" className="bg-white sticky-top d-flex">
             <Container fluid className=' d-flex'>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Brand as={Link} href="/">Bookstore</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link href={'/'} className='navbar-brand'>Bookstore</Link>
+                </Navbar.Brand>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="me-auto my-2 my-lg-0"
@@ -48,8 +46,8 @@ export default function AppHeader() {
                         <Button className='m-0' variant="success">Search</Button>
                     </Form>
                     <ButtonGroup>
-                        <Button as={Link} variant="info" href='/login'>Login</Button>
-                        <Button as={Link} variant="primary" href="/register">Register</Button>
+                        <AppLogin />
+                        <AppRegister />
                     </ButtonGroup>
                 </Container>
             </Container>

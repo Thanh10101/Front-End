@@ -7,7 +7,6 @@ const inter = Inter({ subsets: ['latin'] })
 //import boostrap
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "bootstrap-css-only/css/bootstrap.min.css"
-// import "mdbreact/dist/css/mdb.css"
 import app from "@/style/app.module.scss"
 import { Container } from 'react-bootstrap'
 import AppHeader from '@/components/public/app.header'
@@ -31,7 +30,7 @@ export default function RootLayout({
     <html lang="en" >
       <body className={inter.className}>
         <AppHeader />
-        <Container>
+        <Container className='min-vh-100'>
           {children}
         </Container>
         <AppFooter />

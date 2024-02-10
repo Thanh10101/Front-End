@@ -13,11 +13,11 @@ export default function AppProduct() {
     return (
         <Container className='min-vh-100 ' >
             <h2 className='mt-4'>Sản phẩm nổi bậc</h2>
-            <CardGroup className='mt-3'>
+            <CardGroup >
                 <Row >
                     <Col sm={6} md={4} lg={3} className='mb-4'>
                         <Card border="primary">
-                            <Card.Img as={Image} variant="top" src={banner} className='img-fluid' />
+                            <Card.Img as={Image} variant="top" priority={true} alt='cua' src={banner} className='img-fluid' />
                             <Card.Body >
                                 <Card.Title>Card title</Card.Title>
                                 <Card.Text>
