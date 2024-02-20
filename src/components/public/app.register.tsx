@@ -6,7 +6,8 @@ import { useState } from 'react';
 export default function AppRegister() {
     const router = useRouter()
     const register = () => {
-        alert("registerd")
+        alert('regisred')
+        setLgShow(false)
     }
     const [lgShow, setLgShow] = useState(false);
 

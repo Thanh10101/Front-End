@@ -8,7 +8,12 @@ export default function AppLogin() {
     const login = () => {
 
     }
-
+    const register = () => {
+        setLgShow(false)
+        return (
+            <AppRegister />
+        )
+    }
     const [lgShow, setLgShow] = useState(false);
     return (
         <>
@@ -45,6 +50,7 @@ export default function AppLogin() {
                             <Container className='text-center'>
                                 <ButtonGroup className='me-2 w-100'>
                                     <Button className='me-2 w-50' onClick={() => login()} variant="success">Login</Button>
+                                    {/* <Button className='me-2 w-50' onClick={() => register()} variant="primary">register</Button> */}
                                     <AppRegister />
                                 </ButtonGroup>
                             </Container>

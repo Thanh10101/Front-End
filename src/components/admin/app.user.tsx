@@ -19,6 +19,10 @@ export default function AppUser(props: IProps) {
     }
     return (
         <Container>
+            <Container className="mt-5" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <h3>User</h3>
+                <Button variant='primary' onClick={() => handleAddUser("Add user")}>Add</Button>
+            </Container>
             <Table bordered hover size="sm" responsive="sm lg md" className="text-center w-100">
                 <thead>
                     <tr>
@@ -49,7 +53,6 @@ export default function AppUser(props: IProps) {
                                 <td>{user.roleId}</td>
                                 <td>
                                     <ButtonGroup>
-                                        <Button variant='primary' onClick={() => handleAddUser("Add user")}>Add</Button>
                                         <Button variant='warning' className="mx-2">Edit</Button>
                                         <Button variant='danger'>Delete</Button>
                                     </ButtonGroup>

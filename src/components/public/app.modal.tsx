@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import AppRegister from './app.register';
 import { title } from 'process';
+import AddUser from '../modal/add.user';
 
 interface Iprop {
     state: boolean;
@@ -12,7 +13,8 @@ interface Iprop {
 }
 
 export default function AppModal(props: Iprop) {
-    const { state, stateShow,titileShow } = props;
+    const { state, stateShow, titileShow } = props;
+
 
     return (
         <>
@@ -24,12 +26,24 @@ export default function AppModal(props: Iprop) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        { titileShow}
+                        {titileShow}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
-                    
+                    {
+                        (() => {
+                            switch (titileShow) {
+                                case 'Add user':
+                                    return (
+                                        <AddUser />
+                                    );
+                                default:
+                                    return (
+                                        <div>Null</div>
+                                    )
+                            }
+                        })()
+                    }
                 </Modal.Body>
             </Modal>
         </>

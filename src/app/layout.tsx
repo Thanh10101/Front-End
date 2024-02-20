@@ -11,8 +11,9 @@ import app from "@/style/app.module.scss"
 import { Container } from 'react-bootstrap'
 import AppHeader from '@/components/public/app.header'
 import AppFooter from '@/components/public/app.footer'
-//boostrap
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
   title: 'Create Next App',
@@ -33,6 +34,18 @@ export default function RootLayout({
         <Container className='min-vh-100'>
           {children}
         </Container>
+        <ToastContainer
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+
+        />
         <AppFooter />
       </body>
     </html >
