@@ -1,11 +1,6 @@
 'use client'
 import Link from 'next/link'
-import app from '@/style/app.module.scss'
-import Container from 'react-bootstrap/Container'
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Card, CardGroup, Col, Row } from 'react-bootstrap';
 import Image from "next/image";
 import banner from '@/img/banner.jpg'
 
