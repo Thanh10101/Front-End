@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Container, Button, ButtonGroup, Form } from "react-bootstrap";
 import AppModal from "../public/app.modal";
 import { toast } from "react-toastify"
+import { mutate } from "swr";
 
 export default function AddUser() {
     const [firstName, firstNameAdd] = useState<string>("");
@@ -23,12 +24,14 @@ export default function AddUser() {
         }).then(res => res.json())
             .then(res => {
                 if (res) {
+                    mutate("http://localhost:2002/")
                     toast.success('Create success')
                 }
                 else {
-                    toast.danger('Create fail !')
+                    toast.warning('Create fail !')
                 }
             });
+
     }
     const exit = () => {
 

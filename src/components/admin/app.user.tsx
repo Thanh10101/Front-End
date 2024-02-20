@@ -19,7 +19,7 @@ export default function AppUser(props: IProps) {
     }
     return (
         <Container>
-            <Container className="mt-5" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Container className="mt-5 mb-2" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <h3>User</h3>
                 <Button variant='primary' onClick={() => handleAddUser("Add user")}>Add</Button>
             </Container>
@@ -32,8 +32,8 @@ export default function AppUser(props: IProps) {
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Address</th>
-                        <th>Create Date</th>
-                        <th>Updated Date</th>
+                        {/* <th>Create Date</th>
+                        <th>Updated Date</th> */}
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -48,8 +48,8 @@ export default function AppUser(props: IProps) {
                                 <td>{user.email}</td>
                                 <td>{user.phone}</td>
                                 <td>{user.address}</td>
-                                <td>{user.createdAt}</td>
-                                <td>{user.updatedAt}</td>
+                                {/* <td>{user.createdAt}</td>
+                                <td>{user.updatedAt}</td> */}
                                 <td>{user.roleId}</td>
                                 <td>
                                     <ButtonGroup>
