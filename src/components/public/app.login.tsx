@@ -6,7 +6,7 @@ import AppRegister from './app.register';
 
 export default function AppLogin() {
     const login = () => {
-
+        // const login = fecht
     }
     const register = () => {
         setLgShow(false)

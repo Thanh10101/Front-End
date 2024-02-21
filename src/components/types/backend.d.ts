@@ -6,6 +6,6 @@ interface IUser {
     email: string;
     phone: number;
     roleId: number;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
 }

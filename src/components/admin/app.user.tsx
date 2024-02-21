@@ -32,15 +32,15 @@ export default function AppUser(props: IProps) {
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Address</th>
-                        {/* <th>Create Date</th>
-                        <th>Updated Date</th> */}
+                        <th>Create Date</th>
+                        <th>Updated Date</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        Users?.map(user => (
+                        Users && Users?.map((user :IUser) => (
                             <tr key={user.id}>
                                 <td>{user.id}</td>
                                 <td>{user.firstName}</td>
@@ -48,8 +48,8 @@ export default function AppUser(props: IProps) {
                                 <td>{user.email}</td>
                                 <td>{user.phone}</td>
                                 <td>{user.address}</td>
-                                {/* <td>{user.createdAt}</td>
-                                <td>{user.updatedAt}</td> */}
+                                <td>{user.createdAt}</td>
+                                <td>{user.updatedAt}</td>
                                 <td>{user.roleId}</td>
                                 <td>
                                     <ButtonGroup>
