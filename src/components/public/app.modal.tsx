@@ -4,6 +4,11 @@ import { useState } from 'react';
 import AppRegister from './app.register';
 import { title } from 'process';
 import AddUser from '../modal/add.user';
+import EditUser from '../modal/edit.user';
+import DeleteUser from '../modal/delete.user';
+import { Container, Spinner } from 'react-bootstrap';
+import React from 'react';
+import useSWR from 'swr';
 
 interface Iprop {
     state: boolean;
@@ -12,9 +17,39 @@ interface Iprop {
 
 }
 
+// Get user by id
+const [user, setUser] = React.useState<IUser | undefined>();
+//fecth data
+const fetcher = (url: string) => fetch(url).then(res => res.json());
+const fetchData = async () => {
+    const { data, error, isLoading } = await useSWR('http://localhost:2002/', fetcher, {
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false
+    })
+
+    setUser(data)
+};
+
+
 export default function AppModal(props: Iprop) {
     const { state, stateShow, titileShow } = props;
+    
+    if (titileShow === 'Edit user') {
+        fetchData();
+        if (!user) {
+            return (
+                <Container className="text-center mt-5">
+                    <Spinner animation="border" role="status" className="mt-5">
+                        <span className="visually-hidden ">
+                            Loading
+                        </span>
+                    </Spinner>
 
+                </Container>
+            )
+        }
+    }
 
     return (
         <>
@@ -33,10 +68,14 @@ export default function AppModal(props: Iprop) {
                     {
                         (() => {
                             switch (titileShow) {
-                                case 'Add user':
-                                    return (
-                                        <AddUser />
-                                    );
+                                case 'Add user': return <AddUser />
+
+                                case 'Edit user': return (
+                                    user && <EditUser User={user} />
+                                )
+
+                                case 'Delete user': return <DeleteUser />
+
                                 default:
                                     return (
                                         <div>Null</div>
