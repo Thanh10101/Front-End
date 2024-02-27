@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/redux/store.js", "src/redux/reducer.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/redux/store.js", "src/redux/reducer.js", "src/components/client/app.product.tsx", "src/components/types/lazy.tsx"],
   "exclude": ["node_modules"]
 }

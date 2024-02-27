@@ -4,42 +4,43 @@ import { Container, Button, ButtonGroup, Form } from "react-bootstrap";
 import { toast } from "react-toastify"
 import { mutate } from "swr";
 
-const [firstName, firstNameAdd] = useState<string>("");
-const [lastName, lastNameAdd] = useState<string>("");
-const [email, emailAdd] = useState<string>("");
-const [phone, phoneAdd] = useState<string>("");
-const [address, addressAdd] = useState<string>("");
 
-
-const editUser = () => {
-    fetch('http://localhost:2002/post/edit', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ firstName, lastName, phone, email, address })
-    }).then(res => res.json())
-        .then(res => {
-            if (res) {
-                mutate("http://localhost:2004/")
-                toast.success('Create success')
-            }
-            else {
-                toast.warning('Create fail !')
-            }
-        });
-
-}
-const exit = () => {
-
-}
 interface Iprops {
     User: IUser
 }
 
 export default function EditUser(props: Iprops) {
     const { User } = props
+    const [firstName, firstNameAdd] = useState<string>("");
+    const [lastName, lastNameAdd] = useState<string>("");
+    const [email, emailAdd] = useState<string>("");
+    const [phone, phoneAdd] = useState<string>("");
+    const [address, addressAdd] = useState<string>("");
+
+
+    const editUser = () => {
+        fetch('http://localhost:2002/post/edit', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ firstName, lastName, phone, email, address })
+        }).then(res => res.json())
+            .then(res => {
+                if (res) {
+                    mutate("http://localhost:2004/")
+                    toast.success('Create success')
+                }
+                else {
+                    toast.warning('Create fail !')
+                }
+            });
+
+    }
+    const exit = () => {
+
+    }
     return (
         <Container className='min-vh-100 bg-body-tertiary d-grid gap-3'>
             <Form className='p-2' >

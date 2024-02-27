@@ -1,5 +1,5 @@
 'use client'
-import useSWR from "swr"
+
 import { Container, Table, Button, ButtonGroup } from "react-bootstrap"
 import AppModal from "../public/app.modal";
 import { useState } from "react";
@@ -9,16 +9,17 @@ interface IProps {
     Users: IUser[]
 }
 
-const [button, buttonClick] = useState<string>("")
-const [modal, modalShow] = useState<boolean>(false);
 
-const handleButton = (value: string) => {
-    modalShow(true)
-    buttonClick(value)
-}
 
 export default function AppUser(props: IProps) {
     const { Users } = props;
+    const [button, buttonClick] = useState<string>("")
+    const [modal, modalShow] = useState<boolean>(false);
+
+    const handleButton = (value: string) => {
+        modalShow(true)
+        buttonClick(value)
+    }
     return (
         <Container>
             <Container className="mt-5 mb-2" style={{ display: 'flex', justifyContent: 'space-between' }}>

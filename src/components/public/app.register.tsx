@@ -4,10 +4,12 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function AppRegister() {
-    const router = useRouter()
+    const router = useRouter();
+
     const register = () => {
-        alert('regisred')
-        setLgShow(false)
+        alert('regisred');
+        setLgShow(false);
+        router.push("/customer");
     }
     const [lgShow, setLgShow] = useState(false);
 

@@ -10,7 +10,7 @@ export default function AppHeader() {
             <Container fluid className=' d-flex'>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Brand>
-                    <Link href={'/'} className='navbar-brand'>Bookstore</Link>
+                    <Link  href={'/'} className='navbar-brand'>Bookstore</Link>
                 </Navbar.Brand>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

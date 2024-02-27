@@ -17,26 +17,21 @@ interface Iprop {
 
 }
 
-// Get user by id
-const [user, setUser] = React.useState<IUser | undefined>();
-//fecth data
 const fetcher = (url: string) => fetch(url).then(res => res.json());
-const fetchData = async () => {
-    const { data, error, isLoading } = await useSWR('http://localhost:2002/', fetcher, {
-        revalidateIfStale: false,
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false
-    })
-
-    setUser(data)
-};
-
 
 export default function AppModal(props: Iprop) {
     const { state, stateShow, titileShow } = props;
-    
+    // Get user by id
+    const [user, setUser] = React.useState<IUser | undefined>();
+    //fecth data
+
     if (titileShow === 'Edit user') {
-        fetchData();
+        const { data, error, isLoading } = useSWR('http://localhost:2002/1', fetcher, {
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false
+        })
+        setUser(data)
         if (!user) {
             return (
                 <Container className="text-center mt-5">

@@ -5,37 +5,38 @@ import AppModal from "../public/app.modal";
 import { toast } from "react-toastify"
 import { mutate } from "swr";
 
-const [firstName, firstNameAdd] = useState<string>("");
-const [lastName, lastNameAdd] = useState<string>("");
-const [email, emailAdd] = useState<string>("");
-const [phone, phoneAdd] = useState<string>("");
-const [address, addressAdd] = useState<string>("");
-const [password, passwordAdd] = useState<string>("")
 
-const addUser = () => {
-    fetch('http://localhost:2002/post', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ firstName, lastName, phone, email, address, password })
-    }).then(res => res.json())
-        .then(res => {
-            if (res) {
-                mutate("http://localhost:2002/")
-                toast.success('Create success')
-            }
-            else {
-                toast.warning('Create fail !')
-            }
-        });
-
-}
-const exit = () => {
-
-}
 export default function AddUser() {
+    const [firstName, firstNameAdd] = useState<string>("");
+    const [lastName, lastNameAdd] = useState<string>("");
+    const [email, emailAdd] = useState<string>("");
+    const [phone, phoneAdd] = useState<string>("");
+    const [address, addressAdd] = useState<string>("");
+    const [password, passwordAdd] = useState<string>("")
+
+    const addUser = () => {
+        fetch('http://localhost:2002/post', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ firstName, lastName, phone, email, address, password })
+        }).then(res => res.json())
+            .then(res => {
+                if (res) {
+                    mutate("http://localhost:2002/")
+                    toast.success('Create success')
+                }
+                else {
+                    toast.warning('Create fail !')
+                }
+            });
+
+    }
+    const exit = () => {
+
+    }
     return (
         <Container className='min-vh-100 bg-body-tertiary d-grid gap-3'>
             <Form className='p-2' >
