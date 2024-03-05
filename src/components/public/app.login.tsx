@@ -1,12 +1,38 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import { Container, Button, Modal, ButtonGroup, Form } from 'react-bootstrap';
-import { useState } from 'react';
+import { use, useState, useRef } from 'react';
 import AppRegister from './app.register';
+import { toast } from 'react-toastify';
 
 export default function AppLogin() {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
+
     const login = () => {
-        // const login = fecht
+        const fetchData = use(fetch('http://localhost:2002/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: emailRef.current?.value,
+                password: passwordRef.current?.value
+            })
+        }).then(res => res.json())
+            .then(res => {
+                if (res) {
+
+                    toast.success('Login success')
+                }
+                else {
+                    toast.warning('Login fail !')
+                }
+            }))
     }
     const register = () => {
         setLgShow(false)
@@ -35,14 +61,14 @@ export default function AppLogin() {
                         <Form className='p-2' >
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />

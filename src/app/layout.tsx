@@ -11,6 +11,8 @@ import app from "@/style/app.module.scss"
 import { Container } from 'react-bootstrap'
 import AppHeader from '@/components/public/app.header'
 import AppFooter from '@/components/public/app.footer'
+import { store } from '@/redux/store'
+import { Provider } from 'react-redux'
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -30,23 +32,25 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <body className={inter.className}>
-        <AppHeader />
-        <Container className='min-vh-100'>
-          {children}
-        </Container>
-        <ToastContainer
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
+        <Provider store={store}>
+          <AppHeader />
+          <Container className='min-vh-100'>
+            {children}
+          </Container>
+          <ToastContainer
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
 
-        />
-        <AppFooter />
+          />
+          <AppFooter />
+        </Provider>
       </body>
     </html >
   )
